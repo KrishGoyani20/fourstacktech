@@ -4,8 +4,20 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInRight, staggerContainer, viewportOptions } from "@/components/animations";
 
+type FloatingCard = {
+  label: string;
+  bg: string;
+  icon: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  delay: string;
+  dur: string;
+};
+
 // Service icon cards - mimicking Sridix's pill-shaped app icon cards
-const floatingCards = [
+const floatingCards: FloatingCard[] = [
   // Far Left
   { label: "HRMS", bg: "#dbeafe", icon: "👥", top: "5%", left: "5%", delay: "0s", dur: "5s" },
   { label: "UI/UX Design", bg: "#fce7f3", icon: "🎨", top: "35%", left: "2%", delay: "1s", dur: "6s" },
