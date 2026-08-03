@@ -11,19 +11,19 @@ import PurvImage from "@/components/images/PurvRavani.png";
 
 const team = [
   {
-    name: "Rusil Savani",
-    role: "Founder & CEO",
-    bio: "Driving the strategic vision and growth of FourStackTech. Passionate about building impactful digital solutions that empower businesses to scale and innovate.",
+    name: "Rushil Savani",
+    role: "Co-Founder & CTO",
+    bio: "Leading technology strategy and engineering excellence. Dedicated to crafting robust architectures and guiding our technical teams to deliver top-tier software.",
     image: RushilImage,
-    email: "rusil@fourstacktech.com",
+    email: "rushil@fourstacktech.com",
     linkedin: "#",
     bgColor: "#e0f2fe", // blue accent
     textColor: "#0284c7"
   },
   {
     name: "Purv Ravani",
-    role: "Co-Founder & CTO",
-    bio: "Leading technology strategy and engineering excellence. Dedicated to crafting robust architectures and guiding our technical teams to deliver top-tier software.",
+    role: "CEO & Founder",
+    bio: "Driving the strategic vision and growth of FourStackTech. Passionate about building impactful digital solutions that empower businesses to scale and innovate.",
     image: PurvImage,
     email: "purv@fourstacktech.com",
     linkedin: "#",
