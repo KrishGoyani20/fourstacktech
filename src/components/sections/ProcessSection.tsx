@@ -1,13 +1,14 @@
 "use client";
 
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOptions } from "@/components/animations";
+import { ClipboardAnimated, DesktopAnimated, LaptopAnimated, RocketAnimated } from "@/components/icons/ProcessIcons";
 
 const steps = [
   {
     num: "01",
-    icon: "📋",
+    icon: ClipboardAnimated,
     title: "Consultation &\nAnalysis",
     desc: "We dive deep into your business, goals, and target audience. Our experts analyze your requirements, competitors, and market position to craft the best digital strategy.",
     points: [
@@ -20,7 +21,7 @@ const steps = [
   },
   {
     num: "02",
-    icon: "🎨",
+    icon: DesktopAnimated,
     title: "Design &\nStrategy",
     desc: "We craft a detailed strategy and solution architecture tailored to your needs. Our team creates intuitive designs and maps the right technology roadmap for your project.",
     points: [
@@ -33,7 +34,7 @@ const steps = [
   },
   {
     num: "03",
-    icon: "💻",
+    icon: LaptopAnimated,
     title: "Development &\nQuality Assurance",
     desc: "We build your solution using agile methodologies with a focus on quality, security, and performance. Our QA team ensures a bug-free and reliable product.",
     points: [
@@ -46,7 +47,7 @@ const steps = [
   },
   {
     num: "04",
-    icon: "🚀",
+    icon: RocketAnimated,
     title: "Testing, Refinement\n& Launch",
     desc: "We test across all scenarios, refine every detail, and ensure everything works seamlessly. Once approved, we launch and provide continuous support for your success.",
     points: [
@@ -98,8 +99,10 @@ export default function ProcessSection() {
           whileInView="visible"
           viewport={viewportOptions}
         >
-          {steps.map((step, i) => (
-            <motion.div key={step.num} variants={fadeInUp} className="relative">
+          {steps.map((step, i) => {
+            const IconComp = step.icon;
+            return (
+            <motion.div key={step.num} variants={fadeInUp} className="relative group">
               {/* Arrow connector */}
               {i < steps.length - 1 && (
                 <div className="hidden xl:flex absolute top-12 -right-3 z-10 w-6 h-6 items-center justify-center">
@@ -107,7 +110,7 @@ export default function ProcessSection() {
                     className="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs"
                     style={{ borderColor: "var(--blue-primary)", color: "var(--blue-primary)", background: "#fff" }}
                   >
-                    →
+                    <ArrowRight size={14} className="text-blue-600" />
                   </div>
                 </div>
               )}
@@ -116,7 +119,7 @@ export default function ProcessSection() {
               <motion.div
                 whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.2 }}
-                className="rounded-3xl p-6 h-full flex flex-col"
+                className="rounded-3xl p-6 h-full flex flex-col relative z-10"
                 style={{ background: "#fff", border: "1px solid var(--border-card)", boxShadow: "var(--shadow-sm)" }}
               >
                 {/* Step number badge */}
@@ -128,7 +131,9 @@ export default function ProcessSection() {
                 </div>
 
                 {/* Icon */}
-                <div className="text-5xl mb-4 text-center">{step.icon}</div>
+                <div className="mb-4 text-center mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <IconComp size={56} />
+                </div>
 
                 {/* Title */}
                 <h3
@@ -170,7 +175,7 @@ export default function ProcessSection() {
                 </div>
               </motion.div>
             </motion.div>
-          ))}
+          )})}
         </motion.div>
       </div>
     </section>

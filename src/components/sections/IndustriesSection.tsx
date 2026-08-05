@@ -1,18 +1,23 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, viewportOptions } from "@/components/animations";
+import { Icons } from "@/components/Icons";
+
 const industries = [
-  { icon: "🏥", name: "Healthcare", desc: "EMR, telemedicine, patient portals, medical IoT", gradient: "from-red-600/20 to-rose-600/15", border: "hover:border-red-500/40" },
-  { icon: "💰", name: "FinTech", desc: "Banking apps, crypto, insurance, lending platforms", gradient: "from-emerald-600/20 to-green-600/15", border: "hover:border-emerald-500/40" },
-  { icon: "📚", name: "Education", desc: "LMS, EdTech, e-learning, assessment platforms", gradient: "from-blue-600/20 to-indigo-600/15", border: "hover:border-blue-500/40" },
-  { icon: "🚚", name: "Logistics", desc: "Fleet management, tracking, supply chain, dispatch", gradient: "from-amber-600/20 to-orange-600/15", border: "hover:border-amber-500/40" },
-  { icon: "🛒", name: "E-commerce", desc: "Marketplaces, D2C stores, wholesale platforms", gradient: "from-violet-600/20 to-purple-600/15", border: "hover:border-violet-500/40" },
-  { icon: "🏠", name: "Real Estate", desc: "Property listings, virtual tours, CRM systems", gradient: "from-cyan-600/20 to-teal-600/15", border: "hover:border-cyan-500/40" },
-  { icon: "✈️", name: "Travel", desc: "Booking systems, itinerary planners, hotel apps", gradient: "from-sky-600/20 to-blue-600/15", border: "hover:border-sky-500/40" },
-  { icon: "🍔", name: "Food Delivery", desc: "Restaurant apps, delivery tracking, cloud kitchens", gradient: "from-orange-600/20 to-red-600/15", border: "hover:border-orange-500/40" },
-  { icon: "💬", name: "Social Networking", desc: "Community apps, messaging platforms, creator tools", gradient: "from-pink-600/20 to-fuchsia-600/15", border: "hover:border-pink-500/40" },
-  { icon: "🤖", name: "AI Products", desc: "ML-powered apps, chatbots, recommendation engines", gradient: "from-indigo-600/20 to-violet-600/15", border: "hover:border-indigo-500/40" },
-  { icon: "☁️", name: "SaaS", desc: "B2B tools, productivity apps, analytics dashboards", gradient: "from-teal-600/20 to-cyan-600/15", border: "hover:border-teal-500/40" },
-  { icon: "🏢", name: "Enterprise", desc: "ERP, CRM, internal tools, workflow automation", gradient: "from-slate-600/20 to-gray-600/15", border: "hover:border-slate-400/30" },
+  { icon: Icons.Hospital, name: "Healthcare", desc: "EMR, telemedicine, patient portals, medical IoT", gradient: "from-red-600/20 to-rose-600/15", border: "hover:border-red-500/40" },
+  { icon: Icons.CircleDollarSign, name: "FinTech", desc: "Banking apps, crypto, insurance, lending platforms", gradient: "from-emerald-600/20 to-green-600/15", border: "hover:border-emerald-500/40" },
+  { icon: Icons.BookOpen, name: "Education", desc: "LMS, EdTech, e-learning, assessment platforms", gradient: "from-blue-600/20 to-indigo-600/15", border: "hover:border-blue-500/40" },
+  { icon: Icons.Truck, name: "Logistics", desc: "Fleet management, tracking, supply chain, dispatch", gradient: "from-amber-600/20 to-orange-600/15", border: "hover:border-amber-500/40" },
+  { icon: Icons.ShoppingCart, name: "E-commerce", desc: "Marketplaces, D2C stores, wholesale platforms", gradient: "from-violet-600/20 to-purple-600/15", border: "hover:border-violet-500/40" },
+  { icon: Icons.Home, name: "Real Estate", desc: "Property listings, virtual tours, CRM systems", gradient: "from-cyan-600/20 to-teal-600/15", border: "hover:border-cyan-500/40" },
+  { icon: Icons.Plane, name: "Travel", desc: "Booking systems, itinerary planners, hotel apps", gradient: "from-sky-600/20 to-blue-600/15", border: "hover:border-sky-500/40" },
+  { icon: Icons.Utensils, name: "Food Delivery", desc: "Restaurant apps, delivery tracking, cloud kitchens", gradient: "from-orange-600/20 to-red-600/15", border: "hover:border-orange-500/40" },
+  { icon: Icons.MessageSquare, name: "Social Networking", desc: "Community apps, messaging platforms, creator tools", gradient: "from-pink-600/20 to-fuchsia-600/15", border: "hover:border-pink-500/40" },
+  { icon: Icons.Bot, name: "AI Products", desc: "ML-powered apps, chatbots, recommendation engines", gradient: "from-indigo-600/20 to-violet-600/15", border: "hover:border-indigo-500/40" },
+  { icon: Icons.Cloud, name: "SaaS", desc: "B2B tools, productivity apps, analytics dashboards", gradient: "from-teal-600/20 to-cyan-600/15", border: "hover:border-teal-500/40" },
+  { icon: Icons.Building, name: "Enterprise", desc: "ERP, CRM, internal tools, workflow automation", gradient: "from-slate-600/20 to-gray-600/15", border: "hover:border-slate-400/30" },
 ];
 
 export default function IndustriesSection() {
@@ -32,18 +37,20 @@ export default function IndustriesSection() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {industries.map((ind) => (
+          {industries.map((ind) => {
+            const IconComp = ind.icon;
+            return (
             <div
               key={ind.name}
               className={`group glass-card p-5 card-glow border border-white/[0.06] ${ind.border} hover:-translate-y-1 transition-all duration-300 text-center cursor-pointer`}
             >
-              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${ind.gradient} flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                {ind.icon}
+              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${ind.gradient} flex items-center justify-center text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                <IconComp size={24} />
               </div>
               <h3 className="text-sm font-bold text-white mb-1 group-hover:text-violet-200 transition-colors">{ind.name}</h3>
               <p className="text-slate-500 text-[10px] leading-relaxed">{ind.desc}</p>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Target, Shield, Zap, Briefcase, Smile, Users, Calendar, Headphones, Globe } from "lucide-react";
 import { fadeInLeft, fadeInRight, fadeInUp, scaleIn, staggerContainer, viewportOptions } from "@/components/animations";
+import { TeamAnimated } from "@/components/icons/AboutIcons";
 
 const values = [
   {
@@ -89,7 +90,7 @@ export default function AboutSection() {
               Through Technology
               <br />
               Since{" "}
-              <span style={{ color: "var(--blue-primary)" }}>2019</span>
+              <span style={{ color: "var(--blue-primary)" }}>2026</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-base leading-relaxed mb-8" style={{ color: "var(--text-muted)" }}>
               200+ satisfied clients. 100% commitment to your growth. We build
@@ -153,16 +154,16 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-8">
                 <motion.div
-                  initial={{ scale: 0.5, opacity: 0 }}
+                  initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
+                  transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
                   viewport={{ once: true }}
-                  className="text-6xl mb-4"
+                  className="w-full flex justify-center mb-6"
                 >
-                  👨‍💻
+                  <TeamAnimated className="w-[80%] lg:w-[60%] drop-shadow-2xl" />
                 </motion.div>
-                <p className="font-bold text-xl mb-2">Our Expert Team</p>
-                <p className="text-blue-100 text-sm">50+ Dedicated Professionals</p>
+                <p className="font-bold text-2xl lg:text-3xl mb-2 mt-4 text-white drop-shadow-md">Our Expert Team</p>
+                <p className="text-blue-100 text-sm lg:text-base opacity-90">50+ Dedicated Professionals</p>
               </div>
             </motion.div>
 
@@ -213,13 +214,13 @@ export default function AboutSection() {
                     className="absolute -bottom-3 -left-3 w-14 h-14 rounded-full flex items-center justify-center text-center text-white"
                     style={{ background: "var(--blue-primary)", fontSize: 10, fontWeight: 700 }}
                   >
-                    Since<br />2019
+                    Since<br />2026
                   </div>
                 </div>
                 {/* Story text */}
                 <div className="flex flex-col gap-3">
                   {[
-                    "Founded in 2019, FourStackTech started with a simple belief — technology should be simple, effective and accessible for every business.",
+                    "Founded in 2026, FourStackTech started with a simple belief — technology should be simple, effective and accessible for every business.",
                     "From a small team of passionate developers to a full-scale digital transformation partner, our journey is built on trust, hard work and our commitment to excellence.",
                     "Today, we proudly serve 200+ clients across the globe and continue to build solutions that shape the future.",
                   ].map((text, i) => (

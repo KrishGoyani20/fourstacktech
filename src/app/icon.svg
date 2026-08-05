@@ -1,0 +1,61 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="topGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+    <linearGradient id="r1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <linearGradient id="r2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="r3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e40af" />
+    </linearGradient>
+    <linearGradient id="left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 256 262 L 90 166 L 90 356 L 256 452 Z" fill="url(#left)" stroke="url(#left)" stroke-width="4" />
+    <path d="M 256 262 L 422 166 L 422 216 L 256 312 Z" fill="url(#r1)" stroke="url(#r1)" stroke-width="4" />
+    <path d="M 256 332 L 422 236 L 422 286 L 256 382 Z" fill="url(#r2)" stroke="url(#r2)" stroke-width="4" />
+    <path d="M 256 402 L 422 306 L 422 356 L 256 452 Z" fill="url(#r3)" stroke="url(#r3)" stroke-width="4" />
+    <path d="M 256 70 L 422 166 L 256 262 L 90 166 Z" fill="url(#topGrad)" stroke="url(#topGrad)" stroke-width="4" />
+  </g>
+
+  <g filter="url(#glow)" stroke="#ffffff" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 200 400 L 120 354 L 120 314 L 200 360 L 200 320 L 120 274 L 120 204 L 200 250" />
+    <path d="M 120 239 L 165 265" />
+    <path d="M 160 227 L 140 195 L 200 160 L 260 195 L 336 151" />
+    <path d="M 170 212 L 230 177 L 290 212" />
+    <path d="M 110 178 L 150 155" />
+  </g>
+
+  <g stroke="#ffffff" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 200 400 L 120 354 L 120 314 L 200 360 L 200 320 L 120 274 L 120 204 L 200 250" />
+    <path d="M 120 239 L 165 265" />
+    <path d="M 160 227 L 140 195 L 200 160 L 260 195 L 336 151" />
+    <path d="M 170 212 L 230 177 L 290 212" />
+    <path d="M 110 178 L 150 155" />
+  </g>
+
+  <g fill="#ffffff">
+    <polygon points="360,137 326,134 346,168" />
+    <circle cx="290" cy="212" r="8" />
+    <circle cx="150" cy="155" r="8" />
+  </g>
+</svg>

@@ -74,7 +74,7 @@ export default function LetsTalkPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "var(--blue-pale)" }}>
                   <MapPin size={20} style={{ color: "var(--blue-primary)" }} />
                 </div>
@@ -85,7 +85,7 @@ export default function LetsTalkPage() {
                     Surat, Gujarat, India
                   </p>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </motion.div>
 

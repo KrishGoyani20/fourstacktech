@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import LogoImg from "@/components/images/logoIMG.png";
 
@@ -76,9 +76,9 @@ export default function Footer() {
           </p>
           <a
             href="/contact"
-            className="btn-white"
+            className="btn-white flex items-center gap-2"
           >
-            Let&apos;s Work Together →
+            Let&apos;s Work Together <ArrowRight size={16} />
           </a>
         </div>
       </div>
@@ -101,22 +101,14 @@ export default function Footer() {
               </div>
 
               <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-muted)" }}>
-                Since 2019, FourStackTech has been the go-to partner for businesses
+                Since 2026, FourStackTech has been the go-to partner for businesses
                 that refuse to compromise on quality or innovation. We build custom
                 CRM, ERP, HRM systems and React Native mobile apps. Our team is
                 technology leaders with proven expertise, treating every project
                 like it&apos;s our own.
               </p>
 
-              {/* GSTIN */}
-              <div className="mb-5">
-                <p className="text-xs font-bold" style={{ color: "var(--text-secondary)" }}>
-                  GSTIN
-                </p>
-                <p className="text-sm font-mono" style={{ color: "var(--text-muted)" }}>
-                  24AFTFS4845P1ZZ
-                </p>
-              </div>
+
 
               {/* Social icons */}
               <div className="flex items-center gap-3">
@@ -157,7 +149,7 @@ export default function Footer() {
                       className="flex items-center gap-2 text-sm text-left transition-colors hover:text-blue-600"
                       style={{ color: "var(--text-muted)" }}
                     >
-                      <span style={{ color: "var(--blue-primary)", fontSize: 10 }}>→</span>
+                      <ArrowRight size={14} className="text-blue-600" />
                       {link.label}
                     </button>
                   </li>
@@ -181,7 +173,7 @@ export default function Footer() {
                       className="flex items-center gap-2 text-sm transition-colors hover:text-blue-600"
                       style={{ color: "var(--text-muted)" }}
                     >
-                      <span style={{ color: "var(--blue-primary)", fontSize: 10 }}>→</span>
+                      <ArrowRight size={14} className="text-blue-600" />
                       {link}
                     </a>
                   </li>
@@ -199,7 +191,7 @@ export default function Footer() {
               </h4>
 
               {/* Address */}
-              <div className="flex gap-3 mb-4">
+              {/* <div className="flex gap-3 mb-4">
                 <MapPin
                   size={16}
                   className="flex-shrink-0 mt-0.5"
@@ -212,7 +204,7 @@ export default function Footer() {
                   <br />
                   Gujarat. 395017
                 </p>
-              </div>
+              </div> */}
 
               {/* Email */}
               <div className="flex gap-3 mb-5">
@@ -231,7 +223,7 @@ export default function Footer() {
               </div>
 
               {/* HR */}
-              <div className="mb-3">
+              <div className="mb-8">
                 <p
                   className="text-xs font-bold uppercase tracking-wider mb-2"
                   style={{ color: "var(--text-secondary)" }}
@@ -241,7 +233,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2 mb-1">
                   <Phone size={13} style={{ color: "var(--blue-primary)" }} />
                   <a href="tel:+917777960192" className="text-sm" style={{ color: "var(--text-muted)" }}>
-                    +91 77779 60192
+                    +91 95372 95884
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -263,7 +255,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2 mb-1">
                   <Phone size={13} style={{ color: "var(--blue-primary)" }} />
                   <a href="tel:+919054906119" className="text-sm" style={{ color: "var(--text-muted)" }}>
-                    +91 90549 06119
+                    +91 96019 53185
                   </a>
                 </div>
                 <div className="flex items-center gap-2">

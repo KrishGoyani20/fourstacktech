@@ -3,11 +3,12 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOptions } from "@/components/animations";
+import { Icons } from "@/components/Icons";
 
 const services = [
   {
     num: "01",
-    icon: "🛒",
+    icon: Icons.ShoppingCart,
     title: "E-Commerce Solutions",
     desc: "Scalable and secure e-commerce platforms that convert visitors into loyal customers with seamless shopping experiences.",
     color: "#dbeafe",
@@ -17,7 +18,7 @@ const services = [
   },
   {
     num: "02",
-    icon: "📱",
+    icon: Icons.Smartphone,
     title: "Mobile App Development",
     desc: "Native and cross-platform mobile apps built for seamless performance, engaging user experiences, and business growth.",
     color: "#ede9fe",
@@ -27,7 +28,7 @@ const services = [
   },
   {
     num: "03",
-    icon: "🌐",
+    icon: Icons.Globe,
     title: "Web Development",
     desc: "Modern, responsive, and fast websites & web applications tailored to your business objectives.",
     color: "#e0f2fe",
@@ -37,7 +38,7 @@ const services = [
   },
   {
     num: "04",
-    icon: "⚙️",
+    icon: Icons.Settings,
     title: "ERP & CRM Systems",
     desc: "Streamline operations, manage customer relationships, and improve efficiency with custom ERP & CRM solutions.",
     color: "#ede9fe",
@@ -47,7 +48,7 @@ const services = [
   },
   {
     num: "05",
-    icon: "📊",
+    icon: Icons.BarChart,
     title: "Business Management Solutions",
     desc: "Smart solutions to optimize workflows, track performance, and drive better business decisions.",
     color: "#fef3c7",
@@ -57,7 +58,7 @@ const services = [
   },
   {
     num: "06",
-    icon: "🎧",
+    icon: Icons.Headphones,
     title: "Support & Maintenance",
     desc: "Reliable support and ongoing maintenance to keep your applications secure, updated, and running smoothly.",
     color: "#e0f2fe",
@@ -111,7 +112,9 @@ export default function ServicesSection() {
           whileInView="visible"
           viewport={viewportOptions}
         >
-          {services.map((svc) => (
+          {services.map((svc) => {
+            const IconComp = svc.icon;
+            return (
             <motion.div
               key={svc.num}
               variants={fadeInUp}
@@ -132,7 +135,7 @@ export default function ServicesSection() {
                     className="w-16 h-16 rounded-full flex items-center justify-center border-2"
                     style={{ borderColor: svc.color, background: svc.color + "60" }}
                   >
-                    <span className="text-2xl">{svc.icon}</span>
+                    <IconComp size={28} className="text-slate-800" />
                   </div>
                   {/* Colored dot */}
                   <div
@@ -174,7 +177,7 @@ export default function ServicesSection() {
                 <ArrowRight size={14} />
               </a>
             </motion.div>
-          ))}
+          )})}
         </motion.div>
 
         {/* Bottom CTA Banner */}
@@ -192,10 +195,10 @@ export default function ServicesSection() {
         >
           <div className="flex items-center gap-4">
             <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+              className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
               style={{ background: "var(--blue-primary)" }}
             >
-              🚀
+              <Icons.Rocket size={24} className="text-white" />
             </div>
             <div>
               <p className="font-bold text-base" style={{ color: "var(--text-primary)" }}>
@@ -209,12 +212,14 @@ export default function ServicesSection() {
 
           <div className="flex flex-wrap items-center gap-6 lg:gap-8">
             {[
-              { icon: "🛡️", label: "Secure & Reliable", sub: "Enterprise-grade security you can trust." },
-              { icon: "⏱️", label: "On-Time Delivery", sub: "We value your time and deliver on our promises." },
-              { icon: "👥", label: "Expert Team", sub: "Skilled professionals dedicated to your success." },
-            ].map((item) => (
+              { icon: Icons.Shield, label: "Secure & Reliable", sub: "Enterprise-grade security you can trust." },
+              { icon: Icons.Timer, label: "On-Time Delivery", sub: "We value your time and deliver on our promises." },
+              { icon: Icons.Users, label: "Expert Team", sub: "Skilled professionals dedicated to your success." },
+            ].map((item) => {
+              const IconComp = item.icon;
+              return (
               <div key={item.label} className="flex items-center gap-3">
-                <span className="text-xl">{item.icon}</span>
+                <div className="text-slate-800"><IconComp size={24} /></div>
                 <div>
                   <p className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>
                     {item.label}
@@ -224,11 +229,11 @@ export default function ServicesSection() {
                   </p>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
 
-          <a href="#contact" className="btn-blue flex-shrink-0">
-            Let&apos;s Talk →
+          <a href="#contact" className="btn-blue flex-shrink-0 flex items-center gap-2">
+            Let&apos;s Talk <ArrowRight size={16} />
           </a>
         </motion.div>
       </div>

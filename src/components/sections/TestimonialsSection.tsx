@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Users } from "lucide-react";
+import { Award, Users, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp, scaleIn, staggerContainer, viewportOptions } from "@/components/animations";
 
@@ -203,7 +203,7 @@ export default function TestimonialsSection() {
                 className="inline-flex items-center gap-1 mt-4 text-xs font-bold"
                 style={{ color: "var(--blue-primary)" }}
               >
-                {testimonials[0].impact} →
+                {testimonials[0].impact} <ArrowRight size={16} className="inline-block ml-1" />
               </a>
             </motion.div>
 

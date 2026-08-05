@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import LogoImg from "@/components/images/logoIMG.png";
 
 const navLinks = [
@@ -122,9 +122,9 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <button
             onClick={() => handleNavClick("/contact")}
-            className="btn-blue text-sm py-2.5 px-6"
+            className="btn-blue text-sm py-2.5 px-6 flex items-center gap-2"
           >
-            Let&apos;s Talk →
+            Let&apos;s Talk <ArrowRight size={16} />
           </button>
         </div>
 
@@ -156,9 +156,9 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => handleNavClick("/contact")}
-            className="mt-2 btn-blue justify-center text-sm py-3 w-full"
+            className="mt-2 btn-blue justify-center text-sm py-3 w-full flex items-center gap-2"
           >
-            Let&apos;s Talk →
+            Let&apos;s Talk <ArrowRight size={16} />
           </button>
         </div>
       </div>

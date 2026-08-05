@@ -3,11 +3,12 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewportOptions } from "@/components/animations";
+import { Icons } from "@/components/Icons";
 
 const stats = [
-  { icon: "😊", value: "120+", label: "Projects Completed" },
-  { icon: "📈", value: "98%", label: "Client Satisfaction" },
-  { icon: "🏭", value: "10+", label: "Industries Served" },
+  { icon: Icons.Smile, value: "120+", label: "Projects Completed" },
+  { icon: Icons.TrendingUp, value: "98%", label: "Client Satisfaction" },
+  { icon: Icons.Factory, value: "10+", label: "Industries Served" },
 ];
 
 const splitPilotTechStack = [
@@ -16,33 +17,47 @@ const splitPilotTechStack = [
   { label: "Firebase", bg: "#fef3c7" },
 ];
 
-const sideProjects = [
+type SideProject = {
+  num: string;
+  tag: string;
+  tagColor: string;
+  title: string;
+  desc: string;
+  img: string;
+  imgBg: string;
+  link?: string;
+};
+
+const sideProjects: SideProject[] = [
   {
     num: "01",
-    tag: "WEB DEVELOPMENT",
+    tag: "MOBILE APP",
     tagColor: "var(--blue-primary)",
-    title: "EduTech Portal",
-    desc: "A high-performance portal built for educational institutions to showcase their work.",
-    img: "🎓",
+    title: "CalcifyAI",
+    desc: "An all-in-one AI-powered smart calculator for solving math, tracking goals, and managing finances.",
+    img: "https://play-lh.googleusercontent.com/HXKJU7AnyOo8xinHpIFeoJSatkPMDeqS5T1Xnuj_S1FknCwEcIWVY1hXBMwq1H3-vsxnNa5NP8G300vht1xUApI=w480-h960-rw",
     imgBg: "#e8edf5",
+    link: "https://play.google.com/store/apps/details?id=com.calcifyai",
   },
   {
     num: "02",
-    tag: "WEB DESIGN",
+    tag: "MOBILE APP",
     tagColor: "#7c3aed",
-    title: "LuxeStyle Store",
-    desc: "An elegant e-commerce store designed to deliver a seamless shopping experience.",
-    img: "👗",
+    title: "EaterIQ",
+    desc: "A food intelligence and barcode scanner app to understand ingredients and make healthier grocery choices.",
+    img: "https://play-lh.googleusercontent.com/8WKYFIxlapXI6HsDvNDQp8UDMwHAUUpQjnkBdWD4N4HntEO10IDDa1sJxtW3xx1cLWrYIEfpL7y-4Nc_CgUm9g=w480-h960-rw",
     imgBg: "#ede9fe",
+    link: "https://play.google.com/store/apps/details?id=com.eateriq",
   },
   {
     num: "03",
-    tag: "WEB DESIGN & DEVELOPMENT",
+    tag: "MOBILE APP",
     tagColor: "#059669",
-    title: "GreenBuild Co.",
-    desc: "A bold and immersive website for a modern construction brand that leaves a lasting impact.",
-    img: "🏗️",
+    title: "Truemeds",
+    desc: "An e-pharmacy platform allowing users to purchase branded and generic medicines and access healthcare products online.",
+    img: "https://play-lh.googleusercontent.com/1oki0fL3WrM46GyiA3yEiQzH3k5muuDCTxt4wBO494TlpxApg-_ZoVr52E6naBbksLa24fMcWzSr2DhJyspqoQ=s96-rw",
     imgBg: "#ecfdf5",
+    link: "https://play.google.com/store/apps/details?id=com.intellihealth.truemeds",
   },
 ];
 
@@ -84,13 +99,15 @@ export default function PortfolioSection() {
           className="rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12"
           style={{ background: "#fff", border: "1px solid var(--border-card)", boxShadow: "var(--shadow-sm)" }}
         >
-          {stats.map((s) => (
+          {stats.map((s) => {
+            const IconComp = s.icon;
+            return (
             <div key={s.label} className="flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-800"
                 style={{ background: "var(--blue-pale)" }}
               >
-                {s.icon}
+                <IconComp size={20} />
               </div>
               <div>
                 <div
@@ -104,7 +121,7 @@ export default function PortfolioSection() {
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </motion.div>
 
         {/* Main layout */}
@@ -179,7 +196,14 @@ export default function PortfolioSection() {
                 }}
               >
                 <div className="text-center text-white p-4">
-                  <div className="text-4xl mb-2">💸</div>
+                  <div className="flex justify-center mb-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src="https://play-lh.googleusercontent.com/pJFOLimzroS5wmogBfpqonMeOyryFmxHotIOO4bREktdTBF3bcNlSYGcXuQGjrCgdYZns-GUfcRNitBqRyrVuHk=w480-h960-rw" 
+                      alt="SplitPilot Logo" 
+                      className="w-20 h-20 rounded-[20px] object-cover shadow-xl" 
+                    />
+                  </div>
                   <p className="font-bold text-sm">SplitPilot</p>
                   <p className="text-xs text-slate-400 mt-1">Expense Sharing App</p>
                 </div>
@@ -204,10 +228,15 @@ export default function PortfolioSection() {
                 {/* Thumbnail */}
                 <div className="relative flex-shrink-0">
                   <div
-                    className="w-[80px] h-[70px] rounded-xl flex items-center justify-center text-3xl"
+                    className="w-[80px] h-[70px] rounded-xl flex items-center justify-center overflow-hidden border border-slate-200"
                     style={{ background: proj.imgBg }}
                   >
-                    {proj.img}
+                    {proj.img.startsWith("http") ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={proj.img} alt={proj.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-3xl">{proj.img}</span>
+                    )}
                   </div>
                   <div
                     className="absolute -top-2 -left-2 w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold text-white"
@@ -234,7 +263,9 @@ export default function PortfolioSection() {
                     {proj.desc}
                   </p>
                   <a
-                    href="#contact"
+                    href={proj.link || "#contact"}
+                    target={proj.link ? "_blank" : "_self"}
+                    rel={proj.link ? "noopener noreferrer" : ""}
                     className="inline-flex items-center gap-1 mt-2 text-xs font-bold"
                     style={{ color: proj.tagColor }}
                   >
