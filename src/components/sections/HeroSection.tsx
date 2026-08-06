@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInRight, staggerContainer, viewportOptions } from "@/components/animations";
@@ -39,7 +40,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden pt-[110px] md:pt-[72px] pb-24 md:pb-32"
+      className="relative min-h-screen flex items-center overflow-hidden pt-[140px] md:pt-[120px] lg:pt-[160px] pb-24 md:pb-32"
       style={{
         background: "linear-gradient(145deg, #e8edf5 0%, #dce6f5 50%, #e2ecf8 100%)",
       }}
@@ -90,13 +91,13 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <motion.div variants={fadeInLeft} className="flex flex-wrap justify-center gap-4">
-              <a href="#contact" className="btn-blue group">
+              <Link href="/contact" className="btn-blue group">
                 Start Your Project
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#portfolio" className="btn-outline-blue">
+              </Link>
+              <Link href="/portfolio" className="btn-outline-blue">
                 View Our Work
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 

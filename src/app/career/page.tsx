@@ -9,7 +9,7 @@ const jobs = [
     title: "React JS Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Build dynamic, high-performance web applications using React JS and modern frontend tools.",
     color: "#e0f2fe",
     textColor: "#0284c7"
@@ -18,7 +18,7 @@ const jobs = [
     title: "Node JS Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Develop scalable server-side logic and robust APIs using Node.js and modern backend frameworks.",
     color: "#dcfce7",
     textColor: "#16a34a"
@@ -27,7 +27,7 @@ const jobs = [
     title: "Laravel Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Design and build advanced web applications using the Laravel framework and PHP ecosystem.",
     color: "#fce7f3",
     textColor: "#db2777"
@@ -36,7 +36,7 @@ const jobs = [
     title: "Backend Developer",
     experience: "2 to 4 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Architect and maintain secure, scalable server-side systems, databases, and microservices.",
     color: "#ede9fe",
     textColor: "#7c3aed"
@@ -45,7 +45,7 @@ const jobs = [
     title: "Android App Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Create native Android applications using Kotlin or Java for the best mobile user experience.",
     color: "#dcfce7",
     textColor: "#16a34a"
@@ -54,7 +54,7 @@ const jobs = [
     title: "iOS App Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Build seamless, high-quality native iOS applications using Swift and Apple frameworks.",
     color: "#e0f2fe",
     textColor: "#0284c7"
@@ -63,7 +63,7 @@ const jobs = [
     title: "React Native Developer",
     experience: "Fresher to 2 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Join our mobile team to build high-performance cross-platform applications. Experience with React and native bridging is a plus.",
     color: "#ede9fe",
     textColor: "#7c3aed"
@@ -72,7 +72,7 @@ const jobs = [
     title: "Flutter Developer",
     experience: "Fresher to 2 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Help us craft beautiful and fast natively compiled applications for mobile from a single codebase using Dart.",
     color: "#fef9c3",
     textColor: "#ca8a04"
@@ -81,7 +81,7 @@ const jobs = [
     title: "Shopify Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Develop and customize highly performant e-commerce storefronts and custom Shopify applications.",
     color: "#dcfce7",
     textColor: "#16a34a"
@@ -90,7 +90,7 @@ const jobs = [
     title: "WordPress Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Build scalable, secure, and highly customized WordPress websites, custom themes, and plugins.",
     color: "#e0f2fe",
     textColor: "#0284c7"
@@ -99,7 +99,7 @@ const jobs = [
     title: "PHP Developer",
     experience: "1 to 3 years",
     type: "Full-Time",
-    location: "On-site / Hybrid",
+    location: "On-site  ",
     description: "Develop dynamic web applications and backend systems using core and advanced PHP concepts.",
     color: "#ede9fe",
     textColor: "#7c3aed"
