@@ -4,26 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { 
+  Menu, X, ChevronDown, ArrowRight, Monitor, Smartphone, 
+  Wifi, ShoppingCart, LayoutTemplate, ShoppingBag, Brain, 
+  BookOpen, Bot, Apple, MessageCircle, Compass, Headphones
+} from "lucide-react";
 import LogoImg from "@/components/images/logoIMG.png";
 
 const navLinks = [
   { label: "Home", href: "/#hero" },
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   {
     label: "Services",
     href: "/#services",
-    hasDropdown: true,
-    dropdown: [
-      "E-Commerce Solutions",
-      "Mobile App Development",
-      "Web Development",
-      "ERP & CRM Systems",
-      "Business Management",
-      "Support & Maintenance",
-    ],
+    isMegaMenu: true,
   },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Career", href: "/career" },
 ];
 
@@ -40,6 +36,15 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isLinkActive = (href: string) => {
+    if (href === "/about" && pathname === "/about") return true;
+    if (href === "/portfolio" && pathname === "/portfolio") return true;
+    if (href === "/career" && pathname === "/career") return true;
+    if (href === "/contact" && pathname === "/contact") return true;
+    if ((href === "/#hero" || href === "/") && pathname === "/") return true;
+    return false;
+  };
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
@@ -79,43 +84,138 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <div
-              key={link.href}
-              className="relative"
-              onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                onClick={() => handleNavClick(link.href)}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-500 text-gray-600 hover:text-gray-900 transition-colors duration-200 rounded-lg hover:bg-gray-50"
-                style={{ fontWeight: link.label === "Home" ? 700 : 500, color: link.label === "Home" ? "var(--blue-primary)" : undefined }}
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => (link.hasDropdown || link.isMegaMenu) && setActiveDropdown(link.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {link.label}
-                {link.hasDropdown && (
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`}
-                  />
-                )}
-              </button>
+                <button
+                  onClick={() => handleNavClick(link.href)}
+                  className="flex items-center gap-1 px-4 py-2 text-sm transition-colors duration-200 rounded-lg hover:bg-gray-50"
+                  style={{
+                    fontWeight: active ? 700 : 500,
+                    color: active ? "var(--blue-primary)" : "var(--text-secondary, #4b5563)",
+                  }}
+                >
+                  {link.label}
+                  {(link.hasDropdown || link.isMegaMenu) && (
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`}
+                    />
+                  )}
+                </button>
 
-              {/* Dropdown */}
-              {link.hasDropdown && activeDropdown === link.label && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-gray-100 py-2 z-50">
-                  {link.dropdown?.map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => handleNavClick(link.href)}
-                      className="w-full text-left px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                {/* Simple Dropdown */}
+                {link.hasDropdown && activeDropdown === link.label && (
+                  <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-gray-100 py-2 z-50">
+                    {link.dropdown?.map((item) => (
+                      <button
+                        key={item}
+                        onClick={() => handleNavClick(link.href)}
+                        className="w-full text-left px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Mega Menu for Services */}
+                {link.isMegaMenu && activeDropdown === link.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-slate-100 p-8 z-50 flex flex-col gap-8">
+                    {/* Columns */}
+                    <div className="grid grid-cols-2 gap-12">
+                      {/* Column 1: Web Development */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                            <Monitor size={18} />
+                          </div>
+                          <h4 className="font-black text-slate-900 text-base">Web Development</h4>
+                        </div>
+                        <ul className="space-y-4">
+                          {[
+                            { icon: <Wifi size={14} />, label: "IoT Development" },
+                            { icon: <ShoppingCart size={14} />, label: "Ecommerce Development" },
+                            { icon: <LayoutTemplate size={14} />, label: "Corporate Webdesign" },
+                            { icon: <ShoppingBag size={14} />, label: "Shopify Website Development Company" },
+                            { icon: <Brain size={14} />, label: "AI Development Company" },
+                            { icon: <BookOpen size={14} />, label: "LMS (Learning Management System)..." },
+                          ].map((item, idx) => (
+                            <li key={idx}>
+                              <button
+                                onClick={() => handleNavClick(link.href)}
+                                className="flex items-center gap-3 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors w-full text-left group"
+                              >
+                                <span className="text-blue-400 opacity-70 group-hover:opacity-100 transition-opacity">
+                                  {item.icon}
+                                </span>
+                                {item.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Column 2: App Development */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                            <Smartphone size={18} />
+                          </div>
+                          <h4 className="font-black text-slate-900 text-base">App Development</h4>
+                        </div>
+                        <ul className="space-y-4">
+                          {[
+                            { icon: <Bot size={14} />, label: "Android Development" },
+                            { icon: <Apple size={14} />, label: "iOS Development" },
+                            { icon: <MessageCircle size={14} />, label: "Chat and Calling App Development" },
+                            { icon: <Compass size={14} />, label: "Astrology App Development Company" },
+                          ].map((item, idx) => (
+                            <li key={idx}>
+                              <button
+                                onClick={() => handleNavClick(link.href)}
+                                className="flex items-center gap-3 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors w-full text-left group"
+                              >
+                                <span className="text-blue-400 opacity-70 group-hover:opacity-100 transition-opacity">
+                                  {item.icon}
+                                </span>
+                                {item.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Bottom CTA */}
+                    <div className="bg-slate-50/80 rounded-2xl p-5 flex items-center justify-between border border-slate-100">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-blue-100/50 text-blue-600 flex items-center justify-center flex-shrink-0">
+                          <Headphones size={20} />
+                        </div>
+                        <div>
+                          <p className="font-bold text-slate-900 text-sm mb-0.5">Not sure what you need?</p>
+                          <p className="text-xs text-slate-500 font-medium">Talk to our experts and get the right solution for your business.</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => handleNavClick("/contact")}
+                        className="btn-blue text-sm px-5 py-2.5 flex items-center gap-2 flex-shrink-0"
+                      >
+                        Talk to an Expert <ArrowRight size={14} />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -145,15 +245,23 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="text-left py-3 px-4 rounded-xl text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className="text-left py-3 px-4 rounded-xl text-sm transition-all"
+                style={{
+                  fontWeight: active ? 700 : 500,
+                  color: active ? "var(--blue-primary)" : "var(--text-secondary, #374151)",
+                  backgroundColor: active ? "var(--blue-pale, #eff6ff)" : undefined,
+                }}
+              >
+                {link.label}
+              </button>
+            );
+          })}
           <button
             onClick={() => handleNavClick("/contact")}
             className="mt-2 btn-blue justify-center text-sm py-3 w-full flex items-center gap-2"

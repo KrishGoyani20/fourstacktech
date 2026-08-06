@@ -31,12 +31,10 @@ const values = [
 ];
 
 const stats = [
-  { icon: <Briefcase size={22} />, value: 200, suffix: "+", label: "Projects Delivered" },
-  { icon: <Smile size={22} />, value: 100, suffix: "+", label: "Happy Clients" },
-  { icon: <Users size={22} />, value: 50, suffix: "+", label: "Expert Developers" },
-  { icon: <Calendar size={22} />, value: 6, suffix: "+", label: "Years Experience" },
-  { icon: <Headphones size={22} />, value: 24, suffix: "/7", label: "Support Available" },
-  { icon: <Globe size={22} />, value: 10, suffix: "+", label: "Countries Served" },
+  { label: "Projects Delivered", value: 10, suffix: "+", icon: <Briefcase size={24} /> },
+  { label: "Months Experience", value: 7, suffix: "", icon: <Calendar size={24} /> },
+  { label: "Happy Clients", value: 8, suffix: "+", icon: <Smile size={24} /> },
+  { label: "Developers", value: 10, suffix: "+", icon: <Users size={24} /> },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
@@ -246,7 +244,7 @@ export default function AboutSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOptions}
-                className="grid grid-cols-3 gap-4"
+                className="grid grid-cols-2 md:grid-cols-4 gap-4"
               >
                 {stats.map((stat) => (
                   <motion.div
