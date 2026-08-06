@@ -68,8 +68,8 @@ export default function LetsTalkPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold mb-1" style={{ color: "var(--text-secondary)" }}>Call Us</p>
-                  <a href="tel:+919876543210" className="text-base font-semibold hover:underline" style={{ color: "var(--text-primary)" }}>
-                    +91 98765 43210
+                  <a href="tel:+919601953185" className="text-base font-semibold hover:underline" style={{ color: "var(--text-primary)" }}>
+                    +91 96019 53185
                   </a>
                 </div>
               </div>

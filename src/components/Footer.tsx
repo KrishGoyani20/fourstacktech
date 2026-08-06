@@ -57,31 +57,33 @@ export default function Footer() {
   return (
     <footer style={{ background: "#f8fafd" }}>
       {/* Top CTA Bar */}
-      <div
-        className="py-10"
-        style={{
-          background: "linear-gradient(135deg, var(--blue-primary) 0%, #4f79ff 100%)",
-        }}
-      >
-        <div className="container text-center text-white">
-          <p className="text-xs font-bold uppercase tracking-widest mb-2 text-blue-200">
-            READY TO GET STARTED?
-          </p>
-          <h2 className="text-2xl lg:text-4xl font-black mb-4">
-            Start Your Project Today
-          </h2>
-          <p className="text-blue-100 text-sm mb-6 max-w-md mx-auto">
-            Partner with us to build innovative digital solutions that drive growth
-            and transform your business.
-          </p>
-          <a
-            href="/contact"
-            className="btn-white flex items-center gap-2"
-          >
-            Let&apos;s Work Together <ArrowRight size={16} />
-          </a>
+      {pathname !== "/contact" && (
+        <div
+          className="py-10"
+          style={{
+            background: "linear-gradient(135deg, var(--blue-primary) 0%, #4f79ff 100%)",
+          }}
+        >
+          <div className="container text-center text-white">
+            <p className="text-xs font-bold uppercase tracking-widest mb-2 text-blue-200">
+              READY TO GET STARTED?
+            </p>
+            <h2 className="text-2xl lg:text-4xl font-black mb-4">
+              Start Your Project Today
+            </h2>
+            <p className="text-blue-100 text-sm mb-6 max-w-md mx-auto">
+              Partner with us to build innovative digital solutions that drive growth
+              and transform your business.
+            </p>
+            <a
+              href="/contact"
+              className="btn-white flex items-center gap-2"
+            >
+              Let&apos;s Work Together <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Footer */}
       <div
