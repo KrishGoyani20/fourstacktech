@@ -11,7 +11,15 @@ import {
 } from "lucide-react";
 import LogoImg from "@/components/images/logoIMG.png";
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  isMegaMenu?: boolean;
+  hasDropdown?: boolean;
+  dropdown?: string[];
+};
+
+const navLinks: NavLink[] = [
   { label: "Home", href: "/#hero" },
   { label: "About Us", href: "/about" },
   {
